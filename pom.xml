@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>LesPetitsPedestres</groupId>
-  <artifactId>ProjetDevOps</artifactId>
+  <artifactId>Projet-DevOps</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>ProjetDevOps</name>
+  <name>Projet-DevOps</name>
   <url>http://maven.apache.org</url>
 
   <properties>
