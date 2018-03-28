@@ -1,9 +1,9 @@
-### Projet-DevOps
+# Projet-DevOps
 
 ## Documentation
 
-# Fonctionnalités fournies
+### Fonctionnalités fournies
 
-# Choix outils
+### Choix outils
 
-# Feedback
+### Feedback
