@@ -31,6 +31,12 @@ public class Dataframe{
 		}
 	}
 	
+	public Dataframe(String fileName){
+		//TODO constructeur CSV
+		//1-Parser le fichier en ArrayList de Series
+		//2-Construire le Dataframe comme dans le 1er constructeur 
+		
+	}
 	
 	
 	
