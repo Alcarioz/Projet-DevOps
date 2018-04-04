@@ -1,4 +1,4 @@
-package LesPetitsPedestres;
+package lesPetitsPedestres;
 
 /**
  * Hello world!

@@ -1,4 +1,4 @@
-package LesPetitsPedestres;
+package lesPetitsPedestres;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
