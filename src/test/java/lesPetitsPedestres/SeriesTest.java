@@ -19,22 +19,22 @@ public class SeriesTest extends TestCase {
 
 	public void testgetLabel(){
 		
-		
+		assert(true);
 	}
 	
 	public void testgetArray(){
 		
-		
+		assert(true);
 	}
 	
 	public void testgetSize(){
 		
-		
+		assert(true);
 	}
 	
 	public void testgetaddVal(){
 		
-		
+		assert(true);
 	}
 	
 	public void testgetVal(){
