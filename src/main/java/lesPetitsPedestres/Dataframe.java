@@ -47,7 +47,6 @@ public class Dataframe{
 			@SuppressWarnings({ "rawtypes" })
 			Series serie =new Series(labels[j], new ArrayList());
 			series.add(serie);
-			System.out.println(labels[j]);
 		}		
 		String chaine;		
 		int i = 0;		
@@ -84,7 +83,7 @@ public class Dataframe{
 		}
 		System.out.println(labels);
 		for(int i=0;i<this.maxSize;i++){//Création d'une ligne du dataframe
-			String ligne=indexes.get(i) + " ";			
+			String ligne=this.indexes.get(i) + " ";			
 			for(int j=0;j<nbS;j++){
 				ligne+=this.series.get(j).getVal(i)+ " ";
 			}
