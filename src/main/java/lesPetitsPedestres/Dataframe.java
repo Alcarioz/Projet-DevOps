@@ -53,9 +53,10 @@ public class Dataframe{
 		while((chaine = fichier_source.readLine())!= null){		
 			String[] tabChaine = chaine.split(",");	
 			for (int j=0;j<labels.length;j++){				
-				series.get(j).addVal(tabChaine[i]);		
+				series.get(j).addVal(tabChaine[i]);
+				i++;
 			}
-		i++;
+		i=0;
 		}			
 			fichier_source.close();
 			this.maxSize=i;
