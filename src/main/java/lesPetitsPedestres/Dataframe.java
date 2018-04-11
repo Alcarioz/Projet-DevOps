@@ -167,6 +167,7 @@ public class Dataframe{
 		throw new UnknownLabel();		
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public Dataframe selectByLabel(ArrayList<String> labels){		
 		ArrayList<Series> series = new ArrayList<Series>();
 		for(int i=0;i<this.series.size();i++){

@@ -14,6 +14,36 @@ public class DataframeTest extends TestCase {
 		return new TestSuite( DataframeTest.class );
 	}
 	
+	public void testprintAll(){
+		assert(true);
+	}
 	
+	public void testprintFirst(){
+		assert(true);
+	}
+	
+	public void testprintFirst2(){
+		assert(true);
+	}
+	
+	public void testprintLast(){
+		assert(true);
+	}
+	
+	public void testprintLast2(){
+		assert(true);
+	}
+	
+	public void testaddSerie(){
+		assert(true);
+	}
+	
+	public void testgetSerie(){
+		assert(true);
+	}
+	
+	public void testselectByLabel(){
+		assert(true);
+	}
 
 }

@@ -1,5 +1,6 @@
 package lesPetitsPedestres;
 
+@SuppressWarnings("serial")
 public class UnknownLabel extends Exception{
 
 	
