@@ -74,18 +74,20 @@ public class DataframeTest extends TestCase {
 		assertTrue(outPut.contains("4 M Benjamin 1996 C DELL"));
 	}
 	
-	public void testprintAllFileWrong() throws IOException{
-		Dataframe test = new Dataframe("TestInexistant.csv");
+	public void testWrongFile() throws IOException{
+		
 		
 		PrintStream oldOut = System.out;
 		ByteArrayOutputStream newOut = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(newOut));
 		
-		test.printAll();
+		Dataframe test = new Dataframe("TestInexistant.csv");
 		
 		System.setOut(oldOut);
 		
-		assertFalse(false);
+		String outPut = new String(newOut.toByteArray());
+		
+		assertTrue(outPut.contains("Le fichier est introuvable !"));
 	}
 	
 	public void testprintFirst(){
