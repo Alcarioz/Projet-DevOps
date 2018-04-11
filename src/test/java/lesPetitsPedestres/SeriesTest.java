@@ -39,7 +39,7 @@ public class SeriesTest extends TestCase {
 	
 	public void testgetVal(){
 		
-		
+		assert(true);
 	}
 	
 
