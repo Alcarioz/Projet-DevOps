@@ -61,7 +61,7 @@ public class Dataframe{
 			this.maxSize=i;
 			this.series=series;
 			this.indexes=new ArrayList<Integer>();
-			for(int k=0;i<this.maxSize;k++){
+			for(int k=0;k<this.maxSize;k++){
 				this.indexes.add(k);
 			}
 		}
