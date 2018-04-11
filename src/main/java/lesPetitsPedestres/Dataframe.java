@@ -1,5 +1,9 @@
 package lesPetitsPedestres;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Dataframe{
@@ -31,10 +35,39 @@ public class Dataframe{
 		}
 	}
 	
-	public Dataframe(String fileName){
-		//TODO constructeur CSV
-		//1-Parser le fichier en ArrayList de Series
-		//2-Construire le Dataframe comme dans le 1er constructeur 
+	@SuppressWarnings("unchecked")
+	public Dataframe(String fileName) throws IOException{		
+		try		{	
+		BufferedReader fichier_source = new BufferedReader(new FileReader(fileName));
+		@SuppressWarnings("rawtypes")
+		ArrayList<Series> series=new ArrayList<Series>();
+		String[] labels = fichier_source.readLine().split(",");
+		for (int j=0;j<labels.length;j++){
+			@SuppressWarnings({ "unchecked", "rawtypes" })
+			Series serie =new Series(labels[j], new ArrayList());
+			series.add(serie);
+		}		
+		String chaine;		
+		int i = 0;		
+		while((chaine = fichier_source.readLine())!= null){		
+			String[] tabChaine = chaine.split(",");	
+			for (int j=0;j<labels.length;j++){				
+				series.get(j).addVal(tabChaine[i]);		
+			}
+		i++;
+		}			
+			fichier_source.close();
+			this.maxSize=i;
+			this.series=series;
+			for(int k=0;i<this.maxSize;k++){
+				this.indexes.add(k);
+			}
+		}
+		catch (FileNotFoundException e)
+		{
+			System.out.println("Le fichier est introuvable !");
+		}
+		
 		
 	}
 	
@@ -53,7 +86,7 @@ public class Dataframe{
 				ligne+=this.series.get(j).getVal(i)+ " ";
 			}
 			System.out.println(ligne);
-		}
+		}		
 	}
 	
 	public void printFirst(){
