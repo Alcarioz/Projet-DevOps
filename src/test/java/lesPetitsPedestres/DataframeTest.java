@@ -15,7 +15,7 @@ public class DataframeTest extends TestCase {
 	}
 	
 	public void testprintAll(){
-		assert(true);
+		
 	}
 	
 	public void testprintFirst(){

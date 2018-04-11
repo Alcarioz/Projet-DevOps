@@ -53,7 +53,7 @@ public class Dataframe{
 				ligne+=this.series.get(j).getVal(i)+ " ";
 			}
 			System.out.println(ligne);
-		}		
+		}
 	}
 	
 	public void printFirst(){

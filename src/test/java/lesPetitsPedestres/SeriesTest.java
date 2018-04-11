@@ -23,14 +23,16 @@ public class SeriesTest extends TestCase {
 	public void testgetLabel(){
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		Series<Integer> test = new Series("Test",list);
-		assert(test.getLabel()=="Test");
+		String result = test.getLabel();
+		assert(result=="Test");
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void testgetLabel2(){
 		ArrayList<Boolean> list = new ArrayList<Boolean>();
 		Series<Boolean> test = new Series("Test2",list);
-		assert(test.getLabel()=="Test2");
+		String result = test.getLabel();
+		assert(result=="Test2");
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -42,7 +44,8 @@ public class SeriesTest extends TestCase {
 		list.add(13);
 		list.add(0);
 		Series<Integer> test = new Series("Test",list);
-		assert(test.getArray().equals(list));
+		ArrayList<Integer> result = test.getArray();
+		assert(result.equals(list));
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -53,7 +56,16 @@ public class SeriesTest extends TestCase {
 		list.add('g');
 		list.add('z');
 		Series<Character> test = new Series("Test",list);
-		assert(test.getArray().equals(list));
+		ArrayList<Character> result = test.getArray();
+		assert(result.equals(list));
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void testgetArray3(){
+		ArrayList<Character> list = new ArrayList<Character>();
+		Series<Character> test = new Series("Test",list);
+		ArrayList<Character> result = test.getArray();
+		assert(result.equals(list));
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -65,14 +77,16 @@ public class SeriesTest extends TestCase {
 		list.add("J'espère que tu vas bien");
 		Series<String> test = new Series("Test",list);
 		list.add("Oui");
-		assert(test.getSize()==list.size());
+		Integer result = test.getSize();
+		assert(result==list.size());
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void testgetSize2(){
 		ArrayList<String> list = new ArrayList<String>();
 		Series<String> test = new Series("Test",list);
-		assert(test.getSize()==list.size());
+		Integer result = test.getSize();
+		assert(result==list.size());
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -91,8 +105,8 @@ public class SeriesTest extends TestCase {
 		list.add(true);
 		list.add(true);
 		Series<Boolean> test = new Series("Test",list);
-		assert(test.getVal(1)==false);
+		Boolean result = test.getVal(1);
+		assert(result==false);
 	}
-	
 
 }
