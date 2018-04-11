@@ -215,5 +215,26 @@ public class Dataframe{
 		return new Dataframe(series);
 		
 	}
+	
+	@SuppressWarnings("unchecked")
+	public Dataframe selectByIndexes(ArrayList<Integer> indexes){		
+		ArrayList<Series> series = new ArrayList<Series>();
+		
+		for(int i=0;i<this.series.size();i++){
+			Series serie =new Series(this.series.get(i).getLabel(), new ArrayList());
+			series.add(serie);
+		}
+		for(int i=0;i<this.series.size();i++){
+			for(int j=0; j<this.maxSize;j++){
+				for(int k=0; j<indexes.size();k++){
+					if(indexes.get(k).equals(this.indexes.get(j))){
+						series.get(i).addVal(this.series.get(i).getVal(j));
+					}
+				}
+			}	
+		}
+		return new Dataframe(series);
+		
+	}
 
 }

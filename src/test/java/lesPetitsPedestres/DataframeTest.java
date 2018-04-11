@@ -1,6 +1,7 @@
 package lesPetitsPedestres;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
@@ -50,6 +51,27 @@ public class DataframeTest extends TestCase {
 		assertTrue(outPut.contains("0 5 Bonjour"));
 		assertTrue(outPut.contains("1 9 Oui"));
 		assertTrue(outPut.contains("2 48 Non"));
+	}
+	
+	public void testprintAllFile() throws IOException{
+		Dataframe test = new Dataframe("Test.csv");
+		
+		PrintStream oldOut = System.out;
+		ByteArrayOutputStream newOut = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(newOut));
+		
+		test.printAll();
+		
+		System.setOut(oldOut);
+		
+		String outPut = new String(newOut.toByteArray());
+		
+		assertTrue(outPut.contains("0 Sexe Prénom Année de naissance Langage Marque"));
+		assertTrue(outPut.contains("1 M Thibault 1994 TypeScript ACER"));
+		assertTrue(outPut.contains("2 F Béatrice 1984 Java HP"));
+		assertTrue(outPut.contains("3 M Karim 1982 Python ACER"));
+		assertTrue(outPut.contains("4 M Jeremy 1979 Java ACER"));
+		assertTrue(outPut.contains("5 M Benjamin 1996 C DELL"));
 	}
 	
 	public void testprintFirst(){
