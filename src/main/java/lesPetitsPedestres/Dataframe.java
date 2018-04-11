@@ -217,7 +217,7 @@ public class Dataframe{
 		
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Dataframe selectByIndexes(ArrayList<Integer> indexes){		
 		ArrayList<Series> series = new ArrayList<Series>();
 		
