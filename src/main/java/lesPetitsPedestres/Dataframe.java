@@ -17,6 +17,7 @@ public class Dataframe{
 	public Dataframe(ArrayList<Series> series){
 		this.maxSize=0;
 		this.series=series;
+		this.indexes=new ArrayList<Integer>();
 		for(int i=0;i<series.size();i++){//On cherche la plus grande colonne
 			if(series.get(i).getSize()>this.maxSize){
 				this.maxSize=series.get(i).getSize();
@@ -43,7 +44,7 @@ public class Dataframe{
 		ArrayList<Series> series=new ArrayList<Series>();
 		String[] labels = fichier_source.readLine().split(",");
 		for (int j=0;j<labels.length;j++){
-			@SuppressWarnings({ "unchecked", "rawtypes" })
+			@SuppressWarnings({ "rawtypes" })
 			Series serie =new Series(labels[j], new ArrayList());
 			series.add(serie);
 		}		
@@ -59,6 +60,7 @@ public class Dataframe{
 			fichier_source.close();
 			this.maxSize=i;
 			this.series=series;
+			this.indexes=new ArrayList<Integer>();
 			for(int k=0;i<this.maxSize;k++){
 				this.indexes.add(k);
 			}
