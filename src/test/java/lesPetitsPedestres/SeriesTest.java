@@ -80,7 +80,7 @@ public class SeriesTest extends TestCase {
 		ArrayList<String> list = new ArrayList<String>();	
 		Series<String> test = new Series("Test",list);
 		test.addVal("test JUnit");
-		assert(test.getVal(0)=="test Junit");
+		assert(list.get(0)=="test JUnit");
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
