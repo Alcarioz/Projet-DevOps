@@ -54,7 +54,7 @@ public class DataframeTest extends TestCase {
 	}
 	
 	public void testprintAllFile() throws IOException{
-		Dataframe test = new Dataframe("Test.csv");
+		Dataframe test = new Dataframe("/Test.csv");
 		
 		PrintStream oldOut = System.out;
 		ByteArrayOutputStream newOut = new ByteArrayOutputStream();

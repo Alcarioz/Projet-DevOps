@@ -47,6 +47,7 @@ public class Dataframe{
 			@SuppressWarnings({ "rawtypes" })
 			Series serie =new Series(labels[j], new ArrayList());
 			series.add(serie);
+			System.out.println(labels[j]);
 		}		
 		String chaine;		
 		int i = 0;		
