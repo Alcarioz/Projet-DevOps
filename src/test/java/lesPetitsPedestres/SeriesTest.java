@@ -1,6 +1,8 @@
 package lesPetitsPedestres;
 
 
+import java.util.ArrayList;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -17,13 +19,15 @@ public class SeriesTest extends TestCase {
 	}
 	
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void testgetLabel(){
-		
-		assert(true);
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		Series<Integer> test = new Series("Test",list);
+		assert(test.getLabel()=="Test");
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void testgetArray(){
-		
 		assert(true);
 	}
 	
@@ -32,9 +36,12 @@ public class SeriesTest extends TestCase {
 		assert(true);
 	}
 	
-	public void testgetaddVal(){
-		
-		assert(true);
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void testaddVal(){
+		ArrayList<String> list = new ArrayList<String>();	
+		Series<String> test = new Series("Test",list);
+		test.addVal("test JUnit");
+		assert(list.get(0)=="test Junit");
 	}
 	
 	public void testgetVal(){
