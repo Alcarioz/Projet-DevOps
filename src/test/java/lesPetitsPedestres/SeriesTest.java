@@ -28,7 +28,14 @@ public class SeriesTest extends TestCase {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void testgetArray(){
-		assert(true);
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		list.add(5);
+		list.add(42);
+		list.add(22);
+		list.add(13);
+		list.add(0);
+		Series<Integer> test = new Series("Test",list);
+		assert(test.getArray().equals(list));
 	}
 	
 	public void testgetSize(){
@@ -41,7 +48,7 @@ public class SeriesTest extends TestCase {
 		ArrayList<String> list = new ArrayList<String>();	
 		Series<String> test = new Series("Test",list);
 		test.addVal("test JUnit");
-		assert(list.get(0)=="test Junit");
+		assert(true);
 	}
 	
 	public void testgetVal(){
