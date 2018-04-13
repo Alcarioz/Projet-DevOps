@@ -204,6 +204,7 @@ public class Dataframe{
 	public Series getSerie(String label) throws UnknownLabel{
 		for(int i=0;i<this.series.size();i++){
 			if(label.equals(this.series.get(i).getLabel())){
+				System.out.println(this.series.get(i));
 				return this.series.get(i);
 			}
 		}
