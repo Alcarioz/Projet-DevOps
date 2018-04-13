@@ -176,7 +176,7 @@ public class DataframeTest extends TestCase {
 		ByteArrayOutputStream newOut = new ByteArrayOutputStream();
 	    System.setOut(new PrintStream(newOut));
 		
-		test.printFirst();
+		test.printLast();
 		
 		System.setOut(oldOut);
 		
@@ -187,8 +187,22 @@ public class DataframeTest extends TestCase {
 		assertTrue(outPut.contains("5 7 DevOps"));
 	}
 	
-	public void testprintLast2(){
-		assert(true);
+	public void testprintLast2() throws IOException, SizeException{
+		Dataframe test = new Dataframe("Test.csv");
+		
+		PrintStream oldOut = System.out;
+		ByteArrayOutputStream newOut = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(newOut));
+		
+		test.printLast(3);
+		
+		System.setOut(oldOut);
+		
+		String outPut = new String(newOut.toByteArray());
+		
+		assertTrue(outPut.contains("2 M Karim 1982 Python ACER"));
+		assertTrue(outPut.contains("3 M Jeremy 1979 Java ACER"));
+		assertTrue(outPut.contains("4 M Benjamin 1996 C DELL"));
 	}
 	
 	public void testaddSerie(){
