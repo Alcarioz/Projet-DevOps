@@ -304,5 +304,26 @@ public class DataframeTest extends TestCase {
 		assertTrue(outPut.contains("0 F Béatrice 1984 Java HP"));
 		assertTrue(outPut.contains("1 M Jeremy 1979 Java ACER"));
 	}
+	
+	public void testSizeException() throws IOException, SizeException{
+		Dataframe test = new Dataframe("Test.csv");
+		
+		PrintStream oldOut = System.out;
+		ByteArrayOutputStream newOut = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(newOut));
+		
+		ArrayList<Integer> indexes = new ArrayList<Integer>();
+		indexes.add(1);
+		indexes.add(3);
+		
+		Dataframe result = test.selectByIndexes(indexes);
+		result.printFirst(10);
+		
+		System.setOut(oldOut);
+		
+		String outPut = new String(newOut.toByteArray());
+		
+		assertTrue(outPut.contains("Vous ne pouvez pas afficher autant de lignes."));
+	}
 
 }
