@@ -115,24 +115,37 @@ public class DataframeTest extends TestCase {
 		series.add(serie2);
 		Dataframe test = new Dataframe(series);
 		
-		PrintStream oldOut = System.out;
-		ByteArrayOutputStream newOut = new ByteArrayOutputStream();
-	    System.setOut(new PrintStream(newOut));
+		//PrintStream oldOut = System.out;
+		//ByteArrayOutputStream newOut = new ByteArrayOutputStream();
+	    //System.setOut(new PrintStream(newOut));
 		
 		test.printFirst();
+		
+		//System.setOut(oldOut);
+		
+		//String outPut = new String(newOut.toByteArray());
+		
+		//assertTrue(outPut.contains("  Serie1 Serie2"));
+		//assertTrue(outPut.contains("0 5 Bonjour"));
+		//assertTrue(outPut.contains("1 9 Oui"));
+		//assertTrue(outPut.contains("2 42 Non"));
+	}
+	
+	public void testprintFirst2() throws IOException, SizeException{
+		Dataframe test = new Dataframe("Test.csv");
+		
+		PrintStream oldOut = System.out;
+		ByteArrayOutputStream newOut = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(newOut));
+		
+		test.printFirst(2);
 		
 		System.setOut(oldOut);
 		
 		String outPut = new String(newOut.toByteArray());
 		
-		assertTrue(outPut.contains("  Serie1 Serie2"));
-		assertTrue(outPut.contains("0 5 Bonjour"));
-		assertTrue(outPut.contains("1 9 Oui"));
-		assertTrue(outPut.contains("2 42 Non"));
-	}
-	
-	public void testprintFirst2(){
-		assert(true);
+		assertTrue(outPut.contains("  Sexe Prénom Année de naissance Langage Marque"));
+		assertTrue(outPut.contains("0 M Thibault 1994 TypeScript ACER"));
 	}
 	
 	public void testprintLast(){
