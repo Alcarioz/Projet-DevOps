@@ -73,8 +73,6 @@ public class Dataframe{
 		
 	}
 	
-	
-	
 	public void printAll(){
 		int nbS =this.series.size();
 		String labels= "  ";

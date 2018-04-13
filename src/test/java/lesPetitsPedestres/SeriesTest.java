@@ -32,7 +32,7 @@ public class SeriesTest extends TestCase {
 		ArrayList<Boolean> list = new ArrayList<Boolean>();
 		Series<Boolean> test = new Series("Test2",list);
 		String result = test.getLabel();
-		assert(result=="Test2");
+		assertTrue(result=="Test2");
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
