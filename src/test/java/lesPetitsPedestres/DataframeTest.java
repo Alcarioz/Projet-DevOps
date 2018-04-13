@@ -204,8 +204,35 @@ public class DataframeTest extends TestCase {
 		assertTrue(outPut.contains("4 M Benjamin 1996 C DELL"));
 	}
 	
-	public void testaddSerie(){
-		assert(true);
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void testaddSerie() throws IOException{
+		Dataframe test = new Dataframe("Test.csv");
+		
+		PrintStream oldOut = System.out;
+		ByteArrayOutputStream newOut = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(newOut));
+		
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("Grenoble");
+		list.add("Lyon");
+		list.add("Paris");
+		list.add("Grenoble");
+		list.add("Grenoble");
+		Series<String> serie = new Series("Ville",list);
+		
+		test.addSerie(serie);
+		test.printAll();
+		
+		System.setOut(oldOut);
+		
+		String outPut = new String(newOut.toByteArray());
+		
+		assertTrue(outPut.contains("  Sexe Prénom Année de naissance Langage Marque Ville"));
+		assertTrue(outPut.contains("0 M Thibault 1994 TypeScript ACER Grenoble"));
+		assertTrue(outPut.contains("1 F Béatrice 1984 Java HP Lyon"));
+		assertTrue(outPut.contains("2 M Karim 1982 Python ACER Paris"));
+		assertTrue(outPut.contains("3 M Jeremy 1979 Java ACER Grenoble"));
+		assertTrue(outPut.contains("4 M Benjamin 1996 C DELL Grenoble"));
 	}
 	
 	public void testgetSerie(){
@@ -213,6 +240,10 @@ public class DataframeTest extends TestCase {
 	}
 	
 	public void testselectByLabel(){
+		assert(true);
+	}
+	
+	public void testselectByIndex(){
 		assert(true);
 	}
 
