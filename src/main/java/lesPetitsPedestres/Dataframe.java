@@ -205,7 +205,7 @@ public class Dataframe{
 		ArrayList<Series> series = new ArrayList<Series>();
 		for(int i=0;i<this.series.size();i++){
 			for(int j=0; j<labels.size();j++){
-				if(labels.get(i).equals(this.series.get(i).getLabel())){
+				if(labels.get(j).equals(this.series.get(i).getLabel())){
 					series.add(this.series.get(i));
 				}
 			}
