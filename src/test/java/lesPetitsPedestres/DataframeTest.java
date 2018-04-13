@@ -262,28 +262,47 @@ public class DataframeTest extends TestCase {
 		ArrayList<String> labels = new ArrayList<String>();
 		labels.add("Serie1");
 	
-		//PrintStream oldOut = System.out;
-		//ByteArrayOutputStream newOut = new ByteArrayOutputStream();
-	    //System.setOut(new PrintStream(newOut));
+		PrintStream oldOut = System.out;
+		ByteArrayOutputStream newOut = new ByteArrayOutputStream();
+	    System.setOut(new PrintStream(newOut));
 		
 		Dataframe result = test.selectByLabel(labels);
+		result.printAll();
+		
+		System.setOut(oldOut);
+		
+		String outPut = new String(newOut.toByteArray());
+		
+		assertTrue(outPut.contains("  Serie1"));
+		assertTrue(outPut.contains("0 5"));
+		assertTrue(outPut.contains("1 9"));
+		assertTrue(outPut.contains("2 48"));
+		assertTrue(outPut.contains("3 42"));
+		assertTrue(outPut.contains("4 3"));
+		assertTrue(outPut.contains("5 7"));
+	}
+	
+	public void testselectByIndex() throws IOException{
+		Dataframe test = new Dataframe("Test.csv");
+		
+		//PrintStream oldOut = System.out;
+		//ByteArrayOutputStream newOut = new ByteArrayOutputStream();
+		//System.setOut(new PrintStream(newOut));
+		
+		ArrayList<Integer> indexes = new ArrayList<Integer>();
+		indexes.add(1);
+		indexes.add(3);
+		
+		Dataframe result = test.selectByIndexes(indexes);
 		result.printAll();
 		
 		//System.setOut(oldOut);
 		
 		//String outPut = new String(newOut.toByteArray());
 		
-		/*assertTrue(outPut.contains("  Serie1"));
-		assertTrue(outPut.contains("0 Bonjour"));
-		assertTrue(outPut.contains("1 Oui"));
-		assertTrue(outPut.contains("2 Non"));
-		assertTrue(outPut.contains("3 Bonsoir"));
-		assertTrue(outPut.contains("4 Test"));
-		assertTrue(outPut.contains("5 DevOps"));*/
-	}
-	
-	public void testselectByIndex(){
-		assert(true);
+		/*assertTrue(outPut.contains("  Sexe Prénom Année de naissance Langage Marque"));
+		assertTrue(outPut.contains("1 F Béatrice 1984 Java HP"));
+		assertTrue(outPut.contains("3 M Jeremy 1979 Java ACER"));*/
 	}
 
 }
