@@ -97,11 +97,17 @@ public class DataframeTest extends TestCase {
 		list1.add(5);
 		list1.add(9);
 		list1.add(48);
+		list1.add(42);
+		list1.add(3);
+		list1.add(7);
 		
 		ArrayList<String> list2 = new ArrayList<String>();
 		list2.add("Bonjour");
 		list2.add("Oui");
 		list2.add("Non");
+		list2.add("Bonsoir");
+		list2.add("Test");
+		list2.add("DevOps");
 		Series<Integer> serie1 = new Series("Serie1",list1);
 		Series<String> serie2 = new Series("Serie2",list2);
 		ArrayList<Series> series = new ArrayList<Series>();
@@ -109,18 +115,20 @@ public class DataframeTest extends TestCase {
 		series.add(serie2);
 		Dataframe test = new Dataframe(series);
 		
-		//PrintStream oldOut = System.out;
-		//ByteArrayOutputStream newOut = new ByteArrayOutputStream();
-		//System.setOut(new PrintStream(newOut));
+		PrintStream oldOut = System.out;
+		ByteArrayOutputStream newOut = new ByteArrayOutputStream();
+	    System.setOut(new PrintStream(newOut));
 		
 		test.printFirst();
 		
-		//System.setOut(oldOut);
+		System.setOut(oldOut);
 		
-		//String outPut = new String(newOut.toByteArray());
+		String outPut = new String(newOut.toByteArray());
 		
-		//assertTrue(outPut.contains("  Serie1 Serie2"));
-		//assertTrue(outPut.contains("0 5 Bonjour"));
+		assertTrue(outPut.contains("  Serie1 Serie2"));
+		assertTrue(outPut.contains("0 5 Bonjour"));
+		assertTrue(outPut.contains("1 9 Oui"));
+		assertTrue(outPut.contains("2 42 Non"));
 	}
 	
 	public void testprintFirst2(){

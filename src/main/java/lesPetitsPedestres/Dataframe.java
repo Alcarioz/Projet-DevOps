@@ -91,12 +91,17 @@ public class Dataframe{
 	
 	public void printFirst(){
 		int nbS =this.series.size();
+		int nb;
+		if(this.indexes.size()+1<4)
+			nb=this.indexes.size()+1;
+		else
+			nb=4;
 		String labels= "  ";
 		for(int j=0;j<nbS;j++){//Ligne de labels
 			labels+=this.series.get(j).getLabel()+ " ";
 		}
 		System.out.println(labels);
-		for(int i=0;i<5;i++){
+		for(int i=0;i<nb;i++){
 			String ligne=indexes.get(i) + " ";			
 			for(int j=0;j<nbS;j++){//Création d'une ligne du dataframe
 				ligne+=this.series.get(j).getVal(i)+ " ";
