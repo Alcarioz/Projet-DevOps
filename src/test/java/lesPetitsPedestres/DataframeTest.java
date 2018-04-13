@@ -234,26 +234,52 @@ public class DataframeTest extends TestCase {
 		assertTrue(outPut.contains("3 M Jeremy 1979 Java ACER Grenoble"));
 		assertTrue(outPut.contains("4 M Benjamin 1996 C DELL Grenoble"));
 	}
-	
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public void testgetSerie() throws IOException, UnknownLabel{
-		Dataframe test = new Dataframe("Test.csv");
-		
-		ArrayList<String> list = new ArrayList<String>();
-		list.add("Thibault");
-		list.add("Béatrice");
-		list.add("Karim");
-		list.add("Jeremy");
-		list.add("Benjamin");
-		Series<String> serie = new Series("Prénom",list);
-		
-		Series<String> result = test.getSerie("Prénom");
-		
-		assertTrue(serie.equals(result));
-	}
-	
 	public void testselectByLabel(){
-		assert(true);
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		list1.add(5);
+		list1.add(9);
+		list1.add(48);
+		list1.add(42);
+		list1.add(3);
+		list1.add(7);
+		
+		ArrayList<String> list2 = new ArrayList<String>();
+		list2.add("Bonjour");
+		list2.add("Oui");
+		list2.add("Non");
+		list2.add("Bonsoir");
+		list2.add("Test");
+		list2.add("DevOps");
+		Series<Integer> serie1 = new Series("Serie1",list1);
+		Series<String> serie2 = new Series("Serie2",list2);
+		ArrayList<Series> series = new ArrayList<Series>();
+		series.add(serie1);
+		series.add(serie2);
+		Dataframe test = new Dataframe(series);
+		
+		ArrayList<String> labels = new ArrayList<String>();
+		labels.add("Serie1");
+	
+		PrintStream oldOut = System.out;
+		ByteArrayOutputStream newOut = new ByteArrayOutputStream();
+	    System.setOut(new PrintStream(newOut));
+		
+		Dataframe result = test.selectByLabel(labels);
+		result.printAll();
+		
+		System.setOut(oldOut);
+		
+		String outPut = new String(newOut.toByteArray());
+		
+		assertTrue(outPut.contains("  Serie1"));
+		assertTrue(outPut.contains("0 Bonjour"));
+		assertTrue(outPut.contains("1 Oui"));
+		assertTrue(outPut.contains("2 Non"));
+		assertTrue(outPut.contains("3 Bonsoir"));
+		assertTrue(outPut.contains("4 Test"));
+		assertTrue(outPut.contains("5 DevOps"));
 	}
 	
 	public void testselectByIndex(){

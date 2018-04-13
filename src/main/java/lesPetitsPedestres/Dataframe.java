@@ -201,17 +201,6 @@ public class Dataframe{
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public Series getSerie(String label) throws UnknownLabel{
-		for(int i=0;i<this.series.size();i++){
-			if(label.equals(this.series.get(i).getLabel())){
-				System.out.println(this.series.get(i));
-				return this.series.get(i);
-			}
-		}
-		throw new UnknownLabel();		
-	}
-	
-	@SuppressWarnings("rawtypes")
 	public Dataframe selectByLabel(ArrayList<String> labels){		
 		ArrayList<Series> series = new ArrayList<Series>();
 		for(int i=0;i<this.series.size();i++){
