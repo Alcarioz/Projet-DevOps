@@ -128,7 +128,6 @@ public class DataframeTest extends TestCase {
 		assertTrue(outPut.contains("  Serie1 Serie2"));
 		assertTrue(outPut.contains("0 5 Bonjour"));
 		assertTrue(outPut.contains("1 9 Oui"));
-		assertTrue(outPut.contains("2 42 Non"));
 	}
 	
 	public void testprintFirst2() throws IOException, SizeException{
