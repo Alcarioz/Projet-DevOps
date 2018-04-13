@@ -224,7 +224,7 @@ public class Dataframe{
 		}
 		for(int i=0;i<this.series.size();i++){
 			for(int j=0; j<this.maxSize;j++){
-				for(int k=0; j<indexes.size();k++){
+				for(int k=0; k<indexes.size();k++){
 					if(indexes.get(k).equals(this.indexes.get(j))){
 						series.get(i).addVal(this.series.get(i).getVal(j));
 					}
