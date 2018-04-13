@@ -285,9 +285,9 @@ public class DataframeTest extends TestCase {
 	public void testselectByIndex() throws IOException{
 		Dataframe test = new Dataframe("Test.csv");
 		
-		//PrintStream oldOut = System.out;
-		//ByteArrayOutputStream newOut = new ByteArrayOutputStream();
-		//System.setOut(new PrintStream(newOut));
+		PrintStream oldOut = System.out;
+		ByteArrayOutputStream newOut = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(newOut));
 		
 		ArrayList<Integer> indexes = new ArrayList<Integer>();
 		indexes.add(1);
@@ -296,13 +296,13 @@ public class DataframeTest extends TestCase {
 		Dataframe result = test.selectByIndexes(indexes);
 		result.printAll();
 		
-		//System.setOut(oldOut);
+		System.setOut(oldOut);
 		
-		//String outPut = new String(newOut.toByteArray());
+		String outPut = new String(newOut.toByteArray());
 		
-		/*assertTrue(outPut.contains("  Sexe Prénom Année de naissance Langage Marque"));
+		assertTrue(outPut.contains("  Sexe Prénom Année de naissance Langage Marque"));
 		assertTrue(outPut.contains("1 F Béatrice 1984 Java HP"));
-		assertTrue(outPut.contains("3 M Jeremy 1979 Java ACER"));*/
+		assertTrue(outPut.contains("3 M Jeremy 1979 Java ACER"));
 	}
 
 }
