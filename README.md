@@ -5,6 +5,7 @@
 ### Fonctionnalités fournies
 
   Notre bibilothèque d'analyse de données fournit les fonctionnalités suivantes:
+  
       -Création de Dataframe avec données
       -Création d'un Dataframe à l'aide d'un fichier CSV
       -Affichage d'un Dataframe: totalement, les premières lignes ou les dernières lignes (3 si non spécifiées)
