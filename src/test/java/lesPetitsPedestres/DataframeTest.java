@@ -301,8 +301,8 @@ public class DataframeTest extends TestCase {
 		String outPut = new String(newOut.toByteArray());
 		
 		assertTrue(outPut.contains("  Sexe Prénom Année de naissance Langage Marque"));
-		assertTrue(outPut.contains("1 F Béatrice 1984 Java HP"));
-		assertTrue(outPut.contains("3 M Jeremy 1979 Java ACER"));
+		assertTrue(outPut.contains("0 F Béatrice 1984 Java HP"));
+		assertTrue(outPut.contains("1 M Jeremy 1979 Java ACER"));
 	}
 
 }
