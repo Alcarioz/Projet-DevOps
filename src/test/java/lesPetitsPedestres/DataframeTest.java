@@ -235,8 +235,21 @@ public class DataframeTest extends TestCase {
 		assertTrue(outPut.contains("4 M Benjamin 1996 C DELL Grenoble"));
 	}
 	
-	public void testgetSerie(){
-		assert(true);
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void testgetSerie() throws IOException, UnknownLabel{
+		Dataframe test = new Dataframe("Test.csv");
+		
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("Thibault");
+		list.add("Béatrice");
+		list.add("Karim");
+		list.add("Jeremy");
+		list.add("Benjamin");
+		Series<String> serie = new Series("Prénom",list);
+		
+		Series<String> result = test.getSerie("Prénom");
+		
+		assertTrue(serie.equals(result));
 	}
 	
 	public void testselectByLabel(){
